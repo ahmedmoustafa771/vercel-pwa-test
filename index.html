@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>vercel-pwa-test</title>
+  <meta name="description" content="A minimal PWA you can deploy to Vercel to verify installability and offline support." />
+
+  <!-- PWA wiring -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#141628" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="head">
+      <div class="mark" aria-hidden="true">
+        <span class="dot"></span>
+        <span class="arc arc-1"></span>
+        <span class="arc arc-2"></span>
+      </div>
+      <div>
+        <p class="eyebrow">deployment &amp; pwa check</p>
+        <h1>vercel-pwa-test</h1>
+      </div>
+    </header>
+
+    <p class="lede">
+      If you can read this, the deploy worked. The checks below confirm the
+      service worker, offline cache, and install support are all live.
+    </p>
+
+    <section class="checks" aria-label="Status checks">
+      <article class="check" id="check-served">
+        <span class="led" data-state="ok"></span>
+        <div>
+          <h2>Page served</h2>
+          <p id="served-detail">Loaded over the network.</p>
+        </div>
+      </article>
+
+      <article class="check" id="check-network">
+        <span class="led" data-state="wait"></span>
+        <div>
+          <h2>Connection</h2>
+          <p id="network-detail">Checking…</p>
+        </div>
+      </article>
+
+      <article class="check" id="check-sw">
+        <span class="led" data-state="wait"></span>
+        <div>
+          <h2>Service worker</h2>
+          <p id="sw-detail">Registering…</p>
+        </div>
+      </article>
+
+      <article class="check" id="check-display">
+        <span class="led" data-state="wait"></span>
+        <div>
+          <h2>Display mode</h2>
+          <p id="display-detail">Detecting…</p>
+        </div>
+      </article>
+    </section>
+
+    <div class="actions">
+      <button id="install-btn" class="btn" hidden>Install app</button>
+      <p id="install-hint" class="hint">
+        No install prompt yet. On desktop Chrome, look for the install icon in
+        the address bar. On iOS Safari, use Share → Add to Home Screen.
+      </p>
+    </div>
+
+    <footer class="foot">
+      <p>To test offline: open DevTools → Network → set to <strong>Offline</strong>, then reload.</p>
+      <p class="build">cache <span id="cache-name">app-v1</span></p>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

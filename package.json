@@ -1,0 +1,11 @@
+{
+  "name": "vercel-pwa-test",
+  "version": "1.0.0",
+  "description": "A minimal static PWA to test Vercel deployment, installability, and offline support.",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": ["pwa", "vercel", "static", "service-worker"],
+  "license": "MIT"
+}
